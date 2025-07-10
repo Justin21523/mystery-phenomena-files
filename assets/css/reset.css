@@ -1,0 +1,54 @@
+/* src/css/reset.css */
+
+/* 1. 全域 box-sizing 重設（border-box）*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;  
+  /* 讓 padding/border 都包含在 width/height 裡，布局易於計算 */
+}
+
+/* 2. 清除 html, body 的預設外距與內距 */
+html,
+body {
+  margin: 0;             
+  padding: 0;            
+  line-height: 1.5;      
+  /* 重設行高為 1.5，提升可讀性 */
+}
+
+/* 3. HTML5 語義元素顯示設定（display-role reset）*/
+main, header, footer, article, section, nav, figure, figcaption {
+  display: block;        
+  /* 舊瀏覽器中確保這些元素為 block */
+}
+
+/* 4. 清除清單樣式 */
+ol, ul {
+  list-style: none;      
+  margin: 0;
+  padding: 0;            
+}
+
+/* 5. 多媒體元素響應式與顯示模式 */
+img, picture, video, canvas, svg {
+  display: block;        
+  max-width: 100%;       
+  height: auto;          
+  /* 圖片、影片不會超出容器且維持比例 */
+}
+
+/* 6. 表格間隙移除 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 7. 表單元件繼承字體 */
+button,
+input,
+select,
+textarea {
+  font: inherit;         
+  /* 統一字體設定，避免瀏覽器預設差異 */
+}
