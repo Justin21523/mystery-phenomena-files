@@ -1,0 +1,100 @@
+/* Header 導覽列 */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  z-index: 100;
+  transition: background var(--transition-duration) var(--transition-easing);
+}
+
+.site-header.scrolled {
+  background: var(--color-background);
+}
+
+/* 內部排版 */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* Logo */
+.logo {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Nav 列表 */
+.nav__list {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.nav__list a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  position: relative;
+}
+
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: width var(--transition-duration);
+}
+
+.nav__list a:hover::after,
+.nav__list a:focus::after {
+  width: 100%;
+}
+
+/* 漢堡按鈕（預設隱藏） */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text-primary);
+  transition: transform var(--transition-duration);
+}
+
+/* 手機版樣式 */
+@media (max-width: var(--bp-tablet)) {
+  .nav__list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background: var(--color-surface);
+    width: 200px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-duration);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .nav__list.open {
+    max-height: 300px; /* 根據項目數量可調 */
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
