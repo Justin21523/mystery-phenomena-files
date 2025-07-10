@@ -10,7 +10,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="assets/css/header.css">
+  <!-- 全域樣式 -->
+  <link href="assets/css/reset.css"      rel="stylesheet" />
+  <link href="assets/css/variables.css"  rel="stylesheet" />
+  <link href="assets/css/base.css"       rel="stylesheet" />
+  <link href="assets/css/layout.css"     rel="stylesheet" />
+  <link href="assets/css/components/header.css"     rel="stylesheet" />
+  <link href="assets/css/hero.css"       rel="stylesheet" />
   <title>Replit</title>
 </head>
 
@@ -18,22 +24,52 @@
   <!-- Header 導覽列 -->
   <header class="site-header">
     <div class="container">
-      <a href="index.html" class="logo">🛸 Mystery Files</a>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li><a href="about.html">About</a></li>
-          <li><a href="phenomena.html">Phenomena</a></li>
-          <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="contact.html">Contact</a></li>
+      <a href="index.html" class="logo">Mystery Files</a>
+
+      <nav class="nav-menu">
+        <ul>
+          <li>
+            <a href="history.html">History</a>
+            <ul class="dropdown">
+              <li><a href="history.html#daily">Daily</a></li>
+              <li><a href="history.html#monthly">Monthly</a></li>
+              <li><a href="history.html#yearly">Yearly</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="devices.html">Devices</a>
+            <ul class="dropdown">
+              <li><a href="devices.html#all">All Devices</a></li>
+              <li><a href="devices.html#lighting">Lighting</a></li>
+              <li><a href="devices.html#hvac">HVAC</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="tips.html">Tips</a>
+            <ul class="dropdown">
+              <li><a href="tips.html#lighting">Lighting Tips</a></li>
+              <li><a href="tips.html#appliances">Appliance Tips</a></li>
+              <li><a href="tips.html#heating">Heating Tips</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="settings.html">Settings</a>
+            <ul class="dropdown">
+              <li><a href="settings.html#thresholds">Thresholds</a></li>
+              <li><a href="settings.html#alerts">Alerts</a></li>
+              <li><a href="settings.html#preferences">Preferences</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
+
+      <button class="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
+
+  
   <script type="module" src="assets/js/header.js"></script>
 </body>
 

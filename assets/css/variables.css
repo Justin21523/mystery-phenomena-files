@@ -26,7 +26,7 @@
   --spacing-xxl:  calc(var(--spacing-unit) * 3);     /* 48px */
   
   /*-------------------- 字體排版 (Typography) --------------------*/
-  --font-family-base:   'Helvetica Neue', Arial, sans-serif;
+  --font-family-base:   'Helvetica Neue', 'Roboto', sans-serif, Arial;
   --font-size-base:     1rem;    /* 16px */
   --line-height-base:   1.5;
   --font-size-sm:       0.875rem;/* 14px */

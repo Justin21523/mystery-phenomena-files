@@ -2,24 +2,25 @@
 
 export function initHeader() {
   const header = document.querySelector('.site-header');
-  const navList = document.querySelector('.nav__list');
-  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu   = document.querySelector('.nav-menu');
+  const burgerBtn = document.querySelector('.burger');
 
-  // 漢堡選單切換
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    navList.classList.toggle('open');
-  });
+  // 滾動時切換 .scrolled
+  function handleScroll() {
+    const isScrolled = window.scrollY > 100;
+    header.classList.toggle('scrolled', isScrolled);
+  }
 
-  // 滾動變色
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  // 點擊漢堡鈕開關選單
+  function handleBurgerClick() {
+    navMenu.classList.toggle('active');
+    burgerBtn.classList.toggle('open');
+  }
+
+  // ===== 3. 綁定事件 =====
+  window.addEventListener('scroll', handleScroll);
+  burgerBtn.addEventListener('click', handleBurgerClick);
+  
 }
 
 
