@@ -1,0 +1,52 @@
+/* src/css/variables.css */
+
+/*--------------------------------------------------------------
+1. :root — 全域設計代數 (Design Tokens)
+--------------------------------------------------------------*/
+:root {
+  /*-------------------- Color Palette (語意化色彩) --------------------*/
+  --color-primary:         #2e3a59; /* 主品牌色：沉穩神秘的深藍 (Mystery Blue) */
+  --color-secondary:       #f5a623; /* 輔助色：暖橘，強調重點 (Highlight Orange) */
+  --color-accent:          #9b59b6; /* 點綴色：神秘紫，用於吸睛元素 (Accent Purple) */
+
+  --color-background:      #f4f6f8; /* 底色：淺灰偏白，減輕長時間閱讀疲勞 */
+  --color-surface:         #ffffff; /* 表面色：卡片、區塊背景 (Surface White) */
+
+  --color-text-primary:    #212121; /* 主要文字色：深灰，符合 WCAG AA 對比 */
+  --color-text-secondary:  #666666; /* 次要文字色：淺灰，區分說明或輔助文字 */
+
+  /*-------------------- 間距 (Spacing) — 全部以 rem 為單位 --------------------*/
+  --spacing-unit: 1rem;                          /* 基準：1rem = 16px */
+  --spacing-xxs:  calc(var(--spacing-unit) * 0.25);  /* 4px */
+  --spacing-xs:   calc(var(--spacing-unit) * 0.5);   /* 8px */
+  --spacing-sm:   calc(var(--spacing-unit) * 0.75);  /* 12px */
+  --spacing-md:   var(--spacing-unit);               /* 16px */
+  --spacing-lg:   calc(var(--spacing-unit) * 1.5);   /* 24px */
+  --spacing-xl:   calc(var(--spacing-unit) * 2);     /* 32px */
+  --spacing-xxl:  calc(var(--spacing-unit) * 3);     /* 48px */
+  
+  /*-------------------- 字體排版 (Typography) --------------------*/
+  --font-family-base:   'Helvetica Neue', Arial, sans-serif;
+  --font-size-base:     1rem;    /* 16px */
+  --line-height-base:   1.5;
+  --font-size-sm:       0.875rem;/* 14px */
+  --font-size-lg:       1.125rem;/* 18px */
+  --font-size-h1:       2rem;    /* 32px */
+  --font-size-h2:       1.75rem; /* 28px */
+  --font-size-h3:       1.5rem;  /* 24px */
+  
+  /*-------------------- Breakpoints (響應式斷點) --------------------*/
+  --bp-mobile:  480px;
+  --bp-tablet:  768px;
+  --bp-desktop: 1024px;
+
+  /*-------------------- 邊框與圓角 (Borders & Radius) --------------------*/
+  --border-radius:      0.25rem; /* 4px */
+  --border-radius-lg:   0.5rem;  /* 8px */
+
+  /*-------------------- Motion (動效參數) --------------------*/
+  --duration-fast:    150ms;
+  --duration-normal:  300ms;
+  --duration-slow:    600ms;
+  --ease-default:     cubic-bezier(0.4, 0.0, 0.2, 1);
+}
