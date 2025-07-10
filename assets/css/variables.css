@@ -8,13 +8,20 @@
   --color-primary:         #2e3a59; /* 主品牌色：沉穩神秘的深藍 (Mystery Blue) */
   --color-secondary:       #f5a623; /* 輔助色：暖橘，強調重點 (Highlight Orange) */
   --color-accent:          #9b59b6; /* 點綴色：神秘紫，用於吸睛元素 (Accent Purple) */
+  --color-primary-dark:    #1e90ff; /*深藍*/
 
   --color-background:      #f4f6f8; /* 底色：淺灰偏白，減輕長時間閱讀疲勞 */
   --color-surface:         #ffffff; /* 表面色：卡片、區塊背景 (Surface White) */
 
   --color-text-primary:    #212121; /* 主要文字色：深灰，符合 WCAG AA 對比 */
   --color-text-secondary:  #666666; /* 次要文字色：淺灰，區分說明或輔助文字 */
-
+  
+  /* -------------------- 新增 Header 專用變數 --------------------------------*/
+  --color-header-bg:       var(--color-primary);          /* 導覽列底色 */
+  --color-header-text:     var(--color-surface);          /* 導覽文字 */
+  --color-header-hover:    var(--color-secondary);        /* 導覽滑鼠懸停 */
+  --color-dropdown-bg:     rgba(46, 58, 89, 0.95);        /* 子選單背板 */
+  
   /*-------------------- 間距 (Spacing) — 全部以 rem 為單位 --------------------*/
   --spacing-unit: 1rem;                          /* 基準：1rem = 16px */
   --spacing-xxs:  calc(var(--spacing-unit) * 0.25);  /* 4px */
@@ -26,7 +33,7 @@
   --spacing-xxl:  calc(var(--spacing-unit) * 3);     /* 48px */
   
   /*-------------------- 字體排版 (Typography) --------------------*/
-  --font-family-base:   'Helvetica Neue', Arial, sans-serif;
+  --font-family-base:   'Helvetica Neue', 'Roboto', sans-serif, Arial;
   --font-size-base:     1rem;    /* 16px */
   --line-height-base:   1.5;
   --font-size-sm:       0.875rem;/* 14px */

@@ -1,0 +1,223 @@
+/* assets/css/components/header.css */
+
+/* Header 導覽列 */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2;
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  backdrop-filter: blur(5px);   
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: background-color var(--transition-duration) var(--transition-easing);
+}
+
+/* 滾動時稍微調暗透明度 */
+.site-header.scrolled {
+  background: rgba(46, 58, 89, 0.85);
+}
+
+/* 內部排版 */
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-md);
+}
+
+/* Logo */
+.logo {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-header-text);
+  text-decoration: none;
+}
+
+/* Nav 列表 */
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.nav-menu li {
+  position: relative;    /* 讓 dropdown 可以絕對定位 */
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--color-header-text);
+  padding: var(--spacing-md) var(--spacing-md);
+  font-size: var(--font-size-base);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease color 0.3s ease;
+}
+
+.nav-menu li:hover > a {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu li:hover > a,
+.nav-menu li:focus > a {
+  color: var(--color-header-hover);
+}
+
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: width var(--transition-duration);
+}
+
+.nav-menu li a:hover::after,
+.nav-menu li a:focus::after {
+  width: 100%;
+}
+
+/* 2-b. 新增「靜態流」Dropdown（Desktop）*/
+.nav-menu .dropdown {
+  position: absolute;
+  display: none;                             /* 預設隱藏 */
+  list-style: none;
+  margin-top: var(--spacing-sm);             /* 與主選單間距 */
+  background: var(--color-dropdown-bg);
+  border: 1px solid rgba(255,255,255,0.1);;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  min-width: 160px;
+  z-index: 1000;
+}
+
+/* hover 時靜態顯示，且推擠下方同層內容 */
+.nav-menu li:hover > .dropdown {
+  display: block;
+}
+
+.nav-menu .dropdown li {
+  margin: 0;
+}
+
+/* Dropdown 內部連結 */
+.nav-menu .dropdown li a {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  color: var(--color-header-text);
+  white-space: nowrap;
+}
+
+.nav-menu .dropdown li a:hover {
+  background: rgba(245,166,35,0.15);
+  color: var(--color-header-hover);
+}
+
+/* 4. Burger Menu 樣式 */
+.burger {
+  display: none;         /* 桌機版隱藏 */
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-menu .dropdown li a:hover {
+  background: rgba(245,166,35,0.15);
+  color: var(--color-header-hover);
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-secondary);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 漢堡轉叉動畫*/
+.burger.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* 手機版樣式 */
+@media (max-width: 480px) { /*--bp-mobile:  480px;*/  /* 漢堡選單 */
+  .burger {
+    display: flex;
+  }
+  .burger, .burger span {
+    color: var(--color-primary-dark);
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background: var(--color-surface);
+    width: 200px;
+    text-align: center;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .nav-menu.active {
+    transform: translateX(0%);
+  }
+  /* nav-menu 垂直排列 */
+  .nav-menu ul {
+    display: block;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav-menu li {
+    border-bottom: 1px solid #eee;
+  }
+  .nav-menu li a {
+    color: var(--color-primary-dark);
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  /* 點擊後主項目標記（可自訂樣式） */
+  .nav-menu li.active > a {
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  /* 隱藏所有 dropdown，改用 display:none + max-height 動畫 */
+  .nav-menu .dropdown {  
+    position: static; /* 靜態流定位，才會推擠其他 li */
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    margin-left: var(--spacing-md);
+    transition: max-height 0.3s ease;
+  }
+
+  /* 點擊後展開 dropdown */
+  .nav-menu li:hover > .dropdown {
+    display: block;
+    max-height: 500px; /* 依內容長度調整足夠值 */
+  }
+
+  .nav-menu li.active > .dropdown {
+    display: block;
+  }
+  
+}
