@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "demo:dev": "npm --prefix demo-app run dev",
+    "demo:build": "npm --prefix demo-app run build",
+    "demo:preview": "npm --prefix demo-app run preview"
   },
   "dependencies": {
     "vite": "^5.4.8"
